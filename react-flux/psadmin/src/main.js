@@ -1,3 +1,10 @@
-var App = console.log('Hello world from Browserify!!!!!!!!!!!!11');
+'use strict';
 
-module.exports = App;
+var React = require('react');
+var Home = require('./components/homePage');
+var ReactDOM = require('react-dom');
+
+ReactDOM.render(
+	<Home />,
+	document.querySelector('[data-js="app"]')
+);

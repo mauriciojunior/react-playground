@@ -6,9 +6,9 @@ var open = require('gulp-open');
 var browserify = require('browserify');
 var reactify = require('reactify');
 var source = require('vinyl-source-stream');
-var rename = require('gulp-rename');
 var streamify = require('gulp-streamify');
 var uglify = require('gulp-uglify');
+var fs = require('fs');
 
 var config = {
 	port: 9005,
@@ -41,12 +41,12 @@ gulp.task('html', () => {
 });
 
 gulp.task('js', () => {
-	var bundleStream = browserify('./src/main.js').bundle();
-	bundleStream
-		.pipe(source('main.js'))
-		.pipe(streamify(uglify()))
-		.pipe(rename('bundle.js'))
-		.pipe(gulp.dest(config.paths.dist + '/scripts'))
+	browserify({ debug: true })
+	  .transform(reactify)
+	  .require("./src/main.js", { entry: true })
+	  .bundle()
+	  .on("error", function (err) { console.log("Error: " + err.message); })
+	  .pipe(fs.createWriteStream("./dist/scripts/bundle.js"));
 });
 
 gulp.task('watch', () => {
