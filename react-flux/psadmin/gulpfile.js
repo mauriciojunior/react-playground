@@ -16,6 +16,7 @@ var config = {
 	paths: {
 		html: './src/*.html',
 		js: './src/**/*.js',
+		images: './src/images/*',
 		dist: './dist'
 	}
 };
@@ -49,9 +50,15 @@ gulp.task('js', () => {
 	  .pipe(fs.createWriteStream("./dist/scripts/bundle.js"));
 });
 
+gulp.task('image', () => {
+	gulp.src(config.paths.images)
+		.pipe(gulp.dest(config.paths.dist + '/images'))
+		.pipe(connect.reload())
+});
+
 gulp.task('watch', () => {
 	gulp.watch(config.paths.html, ['html']);
 	gulp.watch(config.paths.js, ['js']);
 });
 
-gulp.task('default', ['html', 'js', 'open', 'watch'], () => console.log(config.paths.js));
+gulp.task('default', ['html', 'js', 'image', 'open', 'watch']);
