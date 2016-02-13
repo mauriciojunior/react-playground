@@ -20,6 +20,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.5.2",
+    "lodash": "^4.3.0",
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
