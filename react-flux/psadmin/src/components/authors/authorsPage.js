@@ -2,6 +2,7 @@
 
 var React = require('react');
 var AuthorsApi = require('../../api/authorsApi');
+var AuthorList = require('./authorList');
 
 var Authors = React.createClass({
 	getInitialState: function() {
@@ -9,35 +10,20 @@ var Authors = React.createClass({
 			authors: []
 		};
 	},
-	componentWillMount: function() {
-		this.setState({
-			authors: AuthorsApi.getAllAuthors()
-		});
+	componentDidMount: function() {
+		if(this.isMounted()) {
+			this.setState({
+				authors: AuthorsApi.getAllAuthors()
+			});
+		}
 	},
 	render: function() {
 		return (
-			<div>
+			<div className='container-fluid'>
 				<h1>Authors</h1>
-
-				<table className='table'>
-					<thead>
-						<th>ID</th>
-						<th>Name</th>
-					</thead>
-					<tbody>
-						{ this.state.authors.map( this.createAuthorRow ) }
-					</tbody>
-				</table>
+				<AuthorList authors={ this.state.authors } />
 			</div>
 		)
-	},
-	createAuthorRow: function( author ) {
-		return (
-			<tr key={ author.id }>
-				<td><a href={ '#/authors/' + author.id }>{ author.id }</a></td>
-				<td>{ author.firstName } { author.lastName }</td>
-			</tr>
-		);
 	}
 });
 
