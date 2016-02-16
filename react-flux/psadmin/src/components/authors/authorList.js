@@ -1,8 +1,8 @@
 'use strict';
 
-var React = require('react');
+const React = require('react');
 
-var AuthorList = React.createClass({
+const AuthorList = React.createClass({
 	render: function() {
 		return (
 			<div>

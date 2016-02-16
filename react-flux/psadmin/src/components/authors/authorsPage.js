@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
-var AuthorsApi = require('../../api/authorsApi');
-var AuthorList = require('./authorList');
+const React = require('react');
+const AuthorsApi = require('../../api/authorsApi');
+const AuthorList = require('./authorList');
 
-var Authors = React.createClass({
+const Authors = React.createClass({
 	getInitialState: function() {
 		return {
 			authors: []

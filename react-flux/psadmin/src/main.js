@@ -1,10 +1,10 @@
 'use strict';
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Router = require('react-router');
-var Route = Router.Route;
-var IndexRoute = Router.IndexRoute;
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Router = require('react-router');
+const Route = Router.Route;
+const IndexRoute = Router.IndexRoute;
 
 ReactDOM.render((
 	<Router>

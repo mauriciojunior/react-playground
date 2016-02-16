@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var Header = require('./commons/header');
+const React = require('react');
+const Header = require('./commons/header');
 
-var App = React.createClass({
+const App = React.createClass({
 	render: function() {
 		return (
 			<div>
