@@ -6,9 +6,7 @@ const open = require('gulp-open');
 const browserify = require('browserify');
 const reactify = require('reactify');
 const source = require('vinyl-source-stream');
-const streamify = require('gulp-streamify');
-const uglify = require('gulp-uglify');
-const fs = require('fs');
+const babelify = require("babelify");
 
 const config = {
 	port: 9005,
@@ -42,12 +40,13 @@ gulp.task('html', () => {
 });
 
 gulp.task('js', () => {
-	browserify({ debug: true })
-	  .transform(reactify)
-	  .require("./src/main.js", { entry: true })
+	browserify('./src/main.js')
+		.transform(babelify, {presets: ['es2015', 'react']})
 	  .bundle()
 	  .on("error", function (err) { console.log("Error: " + err.message); })
-	  .pipe(fs.createWriteStream("./dist/scripts/bundle.js"));
+	  .pipe(source('bundle.js'))
+	  .pipe(gulp.dest(config.paths.dist + '/scripts/'))
+	  .pipe(connect.reload());
 });
 
 gulp.task('image', () => {

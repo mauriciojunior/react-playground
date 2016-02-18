@@ -1,7 +1,7 @@
 'use strict';
 
-const React = require('react');
-const Header = require('./commons/header');
+import React from 'react';
+import Header from './commons/header';
 
 const App = React.createClass({
 	render: function() {

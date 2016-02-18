@@ -1,18 +1,21 @@
 'use strict';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Router = require('react-router');
-const Route = Router.Route;
-const IndexRoute = Router.IndexRoute;
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, IndexRoute, NotFoundRoute, hashHistory } from 'react-router'
+import App from './components/app'
+import Home from './components/homePage'
+import Authors from './components/authors/authorsPage'
+import About from './components/about/aboutPage'
+import NotFoundPage from './components/notFoundPage'
 
-ReactDOM.render((
-	<Router>
-		<Route path='/' component={ require('./components/app') }>
-			<IndexRoute component={ require('./components/homePage') } />
-			<Route path='authors' component={ require('./components/authors/authorsPage') } />
-			<Route path='about' component={ require('./components/about/aboutPage') } />
+render((
+	<Router history={ hashHistory }>
+		<Route path='/' component={ App }>
+			<IndexRoute component={ Home } />
+			<Route path='authors' component={ Authors } />
+			<Route path='about' component={ About } />
+			<Route path='*' component={ NotFoundPage } />
 		</Route>
-	</Router>
-	), document.querySelector('[data-js="app"]')
+	</Router>), document.querySelector('[data-js="app"]')
 );
