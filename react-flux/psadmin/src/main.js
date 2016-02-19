@@ -8,6 +8,7 @@ import Home from './components/homePage'
 import Authors from './components/authors/authorsPage'
 import About from './components/about/aboutPage'
 import NotFoundPage from './components/notFoundPage'
+import ManageAuthorPage from './components/authors/manageAuthorPage'
 
 render((
 	<Router history={ hashHistory }>
@@ -15,6 +16,7 @@ render((
 			<IndexRoute component={ Home } />
 			<Route path='authors' component={ Authors } />
 			<Route path='about' component={ About } />
+			<Route path='addAuthor' component={ ManageAuthorPage } />
 			<Route path='*' component={ NotFoundPage } />
 		</Route>
 	</Router>), document.querySelector('[data-js="app"]')

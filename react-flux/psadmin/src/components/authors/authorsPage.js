@@ -1,8 +1,9 @@
 'use strict';
 
-const React = require('react');
-const AuthorsApi = require('../../api/authorsApi');
-const AuthorList = require('./authorList');
+import React from 'react';
+import AuthorsApi from '../../api/authorsApi';
+import AuthorList from './authorList';
+import { Link } from 'react-router'
 
 const Authors = React.createClass({
 	getInitialState: function() {
@@ -21,6 +22,7 @@ const Authors = React.createClass({
 		return (
 			<div className='container-fluid'>
 				<h1>Authors</h1>
+				<Link to="addAuthor" className="btn btn-default">Add author</Link>
 				<AuthorList authors={ this.state.authors } />
 			</div>
 		)

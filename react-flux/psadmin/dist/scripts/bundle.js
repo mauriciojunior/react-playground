@@ -38919,7 +38919,56 @@ var App = _react2.default.createClass({
 
 module.exports = App;
 
-},{"./commons/header":223,"react":216}],221:[function(require,module,exports){
+},{"./commons/header":225,"react":216}],221:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AuthorForm = _react2.default.createClass({
+	displayName: 'AuthorForm',
+
+	render: function render() {
+		return _react2.default.createElement(
+			'form',
+			null,
+			_react2.default.createElement(
+				'label',
+				{ htmlFor: 'firstName' },
+				'First Name'
+			),
+			_react2.default.createElement('input', { type: 'text',
+				name: 'firstName',
+				className: 'form-control',
+				placeholder: 'First Name',
+				ref: 'firstName',
+				value: ''
+			}),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement(
+				'label',
+				{ htmlFor: 'lastName' },
+				'Last Name'
+			),
+			_react2.default.createElement('input', { type: 'text',
+				name: 'lastName',
+				className: 'form-control',
+				placeholder: 'First Name',
+				ref: 'lastName',
+				value: ''
+			}),
+			_react2.default.createElement('br', null),
+			_react2.default.createElement('input', { type: 'submit', value: 'Save', className: 'btn btn-default' })
+		);
+	}
+});
+
+module.exports = AuthorForm;
+
+},{"react":216}],222:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -38982,14 +39031,26 @@ var AuthorList = React.createClass({
 
 module.exports = AuthorList;
 
-},{"react":216}],222:[function(require,module,exports){
+},{"react":216}],223:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
-var AuthorsApi = require('../../api/authorsApi');
-var AuthorList = require('./authorList');
+var _react = require('react');
 
-var Authors = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+var _authorsApi = require('../../api/authorsApi');
+
+var _authorsApi2 = _interopRequireDefault(_authorsApi);
+
+var _authorList = require('./authorList');
+
+var _authorList2 = _interopRequireDefault(_authorList);
+
+var _reactRouter = require('react-router');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Authors = _react2.default.createClass({
 	displayName: 'Authors',
 
 	getInitialState: function getInitialState() {
@@ -39000,27 +39061,64 @@ var Authors = React.createClass({
 	componentDidMount: function componentDidMount() {
 		if (this.isMounted()) {
 			this.setState({
-				authors: AuthorsApi.getAllAuthors()
+				authors: _authorsApi2.default.getAllAuthors()
 			});
 		}
 	},
 	render: function render() {
-		return React.createElement(
+		return _react2.default.createElement(
 			'div',
 			{ className: 'container-fluid' },
-			React.createElement(
+			_react2.default.createElement(
 				'h1',
 				null,
 				'Authors'
 			),
-			React.createElement(AuthorList, { authors: this.state.authors })
+			_react2.default.createElement(
+				_reactRouter.Link,
+				{ to: 'addAuthor', className: 'btn btn-default' },
+				'Add author'
+			),
+			_react2.default.createElement(_authorList2.default, { authors: this.state.authors })
 		);
 	}
 });
 
 module.exports = Authors;
 
-},{"../../api/authorsApi":218,"./authorList":221,"react":216}],223:[function(require,module,exports){
+},{"../../api/authorsApi":218,"./authorList":222,"react":216,"react-router":31}],224:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _authorForm = require('./authorForm');
+
+var _authorForm2 = _interopRequireDefault(_authorForm);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var ManageAuthorPage = _react2.default.createClass({
+	displayName: 'ManageAuthorPage',
+
+	render: function render() {
+		return _react2.default.createElement(
+			'div',
+			{ className: 'container-fluid' },
+			_react2.default.createElement(
+				'h1',
+				null,
+				'Manager Author'
+			),
+			_react2.default.createElement(_authorForm2.default, null)
+		);
+	}
+});
+
+module.exports = ManageAuthorPage;
+
+},{"./authorForm":221,"react":216}],225:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -39084,27 +39182,31 @@ var Header = _react2.default.createClass({
 
 module.exports = Header;
 
-},{"react":216,"react-router":31}],224:[function(require,module,exports){
+},{"react":216,"react-router":31}],226:[function(require,module,exports){
 'use strict';
 
-var React = require('react');
+var _react = require('react');
 
-var Home = React.createClass({
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Home = _react2.default.createClass({
 	displayName: 'Home',
 
 	render: function render() {
-		return React.createElement(
+		return _react2.default.createElement(
 			'div',
 			{ className: 'container-fluid' },
-			React.createElement(
+			_react2.default.createElement(
 				'div',
 				{ className: 'jumbotron' },
-				React.createElement(
+				_react2.default.createElement(
 					'h1',
 					null,
 					'Pluralsight Administration'
 				),
-				React.createElement(
+				_react2.default.createElement(
 					'p',
 					null,
 					'React, React Router and Flux for ultra-responsive web apps.'
@@ -39116,7 +39218,7 @@ var Home = React.createClass({
 
 module.exports = Home;
 
-},{"react":216}],225:[function(require,module,exports){
+},{"react":216}],227:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -39159,7 +39261,7 @@ var NotFoundPage = _react2.default.createClass({
 
 module.exports = NotFoundPage;
 
-},{"react":216,"react-router":31}],226:[function(require,module,exports){
+},{"react":216,"react-router":31}],228:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -39190,6 +39292,10 @@ var _notFoundPage = require('./components/notFoundPage');
 
 var _notFoundPage2 = _interopRequireDefault(_notFoundPage);
 
+var _manageAuthorPage = require('./components/authors/manageAuthorPage');
+
+var _manageAuthorPage2 = _interopRequireDefault(_manageAuthorPage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _reactDom.render)(_react2.default.createElement(
@@ -39201,8 +39307,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 		_react2.default.createElement(_reactRouter.IndexRoute, { component: _homePage2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'authors', component: _authorsPage2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: 'about', component: _aboutPage2.default }),
+		_react2.default.createElement(_reactRouter.Route, { path: 'addAuthor', component: _manageAuthorPage2.default }),
 		_react2.default.createElement(_reactRouter.Route, { path: '*', component: _notFoundPage2.default })
 	)
 ), document.querySelector('[data-js="app"]'));
 
-},{"./components/about/aboutPage":219,"./components/app":220,"./components/authors/authorsPage":222,"./components/homePage":224,"./components/notFoundPage":225,"react":216,"react-dom":3,"react-router":31}]},{},[226]);
+},{"./components/about/aboutPage":219,"./components/app":220,"./components/authors/authorsPage":223,"./components/authors/manageAuthorPage":224,"./components/homePage":226,"./components/notFoundPage":227,"react":216,"react-dom":3,"react-router":31}]},{},[228]);
