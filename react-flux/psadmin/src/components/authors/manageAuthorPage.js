@@ -4,7 +4,7 @@ import React from 'react';
 import AuthorForm from './authorForm';
 
 var ManageAuthorPage = React.createClass({
-	getInitialState: function() {
+	getInitialState: () => {
 		return {
 			author: {
 				id: '',
