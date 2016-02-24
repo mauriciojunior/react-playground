@@ -4,7 +4,7 @@ import React from 'react';
 import AuthorForm from './authorForm';
 
 var ManageAuthorPage = React.createClass({
-	getInitialState: () => {
+	getInitialState() {
 		return {
 			author: {
 				id: '',
@@ -13,7 +13,7 @@ var ManageAuthorPage = React.createClass({
 			}
 		};
 	},
-	setAuthorState: (event) => {
+	setAuthorState(event) {
 		let field = event.target.name;
 		let value = event.target.value;
 		this.state.author[field] = value;
@@ -21,7 +21,7 @@ var ManageAuthorPage = React.createClass({
 			author: this.state.author
 		});
 	},
-	render: () => {
+	render() {
 		return (
 			<div className='container-fluid'>
 				<h1>Manager Author</h1>

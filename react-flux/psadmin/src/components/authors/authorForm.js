@@ -3,7 +3,7 @@
 import React from 'react';
 
 const AuthorForm = React.createClass({
-	render: () => {
+	render() {
 		return (
 			<form>
 				<label htmlFor="firstName">First Name</label>
