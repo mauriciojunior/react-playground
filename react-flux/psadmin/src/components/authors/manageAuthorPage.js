@@ -22,6 +22,7 @@ var ManageAuthorPage = React.createClass({
 		});
 	},
 	render() {
+
 		return (
 			<div className='container-fluid'>
 				<h1>Manager Author</h1>
