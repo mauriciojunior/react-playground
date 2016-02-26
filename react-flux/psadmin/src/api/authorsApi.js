@@ -6,7 +6,7 @@ var _ = require('lodash');
 
 //This would be performed on the server in a real app. Just stubbing in.
 var _generateId = function(author) {
-	return author.firstName.toLowerCase() + '-' + author.lastName.toLowerCase();
+	return author.firstName.toLowerCase().trim() + '-' + author.lastName.toLowerCase().trim();
 };
 
 var AuthorApi = {
@@ -17,11 +17,11 @@ var AuthorApi = {
 	getAuthorById: function(id) {
 		return _.find(authors, {id: id});
 	},
-	
+
 	saveAuthor: function(author) {
 		//pretend an ajax call to web api is made here
 		console.log('Pretend this just saved the author to the DB via AJAX call...');
-		
+
 		//Just simulating creation here.
 		//The server would generate ids for new authors in a real app.
 		if (!author.id) {
