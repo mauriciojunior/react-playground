@@ -9,6 +9,7 @@ import Authors from './components/authors/authorsPage'
 import About from './components/about/aboutPage'
 import NotFoundPage from './components/notFoundPage'
 import ManageAuthorPage from './components/authors/manageAuthorPage'
+import $ from 'jquery'
 
 render((
 	<Router history={ hashHistory }>
