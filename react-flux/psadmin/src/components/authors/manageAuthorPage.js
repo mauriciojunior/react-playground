@@ -8,8 +8,18 @@ import toastr from 'toastr';
 
 const ManageAuthorPage = React.createClass({
 	contextTypes: {
-    router: React.PropTypes.object.isRequired
+    router: React.PropTypes.object
   },
+
+  componentDidMount() {
+    this.context.router.setRouteLeaveHook(this.props.route, this.routerWillLeave)
+  },
+
+  routerWillLeave(nextLocation) {
+    if (this.state.dirty)
+      return 'Your work is not saved! Are you sure you want to leave?'
+  },
+
 	getInitialState() {
 		return {
 			author: {
@@ -17,17 +27,32 @@ const ManageAuthorPage = React.createClass({
 				firstName: '',
 				lastName: ''
 			},
-			errors: {}
+			errors: {},
+			dirty: false
 		};
 	},
+
+	componentWillMount() {
+		let authorId = this.props.params.id;
+
+		if(authorId) {
+			this.setState({
+				author: AuthorsApi.getAuthorById(authorId)
+			})
+		}
+	},
+
 	setAuthorState(event) {
+		console.log(event.target.name)
 		let field = event.target.name;
 		let value = event.target.value;
 		this.state.author[field] = value;
 		return this.setState({
+			dirty: true,
 			author: this.state.author
 		});
 	},
+
 	saveAuthor(event) {
 		event.preventDefault();
 
@@ -35,6 +60,7 @@ const ManageAuthorPage = React.createClass({
 
 		AuthorsApi.saveAuthor(this.state.author);
 		toastr.success('Author saved.');
+		this.setState({dirty: false});
     this.context.router.push('authors');
 	},
 
@@ -55,6 +81,7 @@ const ManageAuthorPage = React.createClass({
 		this.setState({errors: this.state.errors});
 		return formIsValid;
 	},
+
 	render() {
 		return (
 			<div className='container-fluid'>
@@ -68,6 +95,7 @@ const ManageAuthorPage = React.createClass({
 			</div>
 		);
 	}
+
 });
 
 module.exports = ManageAuthorPage;

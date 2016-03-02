@@ -1,6 +1,7 @@
 'use strict';
 
-const React = require('react');
+import React from 'react';
+import { Link } from 'react-router';
 
 const AuthorList = React.createClass({
 	render: function() {
@@ -21,7 +22,7 @@ const AuthorList = React.createClass({
 	createAuthorRow: function( author ) {
 		return (
 			<tr key={ author.id }>
-				<td><a href={ '#/authors/' + author.id }>{ author.id }</a></td>
+				<td><Link to={ `author/${ author.id }` }>{ author.id }</Link></td>
 				<td>{ author.firstName } { author.lastName }</td>
 			</tr>
 		);

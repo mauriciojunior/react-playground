@@ -18,6 +18,7 @@ render((
 			<Route path='authors' component={ Authors } />
 			<Route path='about' component={ About } />
 			<Route path='addAuthor' component={ ManageAuthorPage } />
+			<Route path='author/:id' component={ ManageAuthorPage }/>
 			<Route path='*' component={ NotFoundPage } />
 		</Route>
 	</Router>), document.querySelector('[data-js="app"]')
