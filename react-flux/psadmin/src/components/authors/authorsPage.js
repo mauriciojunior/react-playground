@@ -1,23 +1,18 @@
 'use strict';
 
 import React from 'react';
-import AuthorsApi from '../../api/authorsApi';
+import AuthorActions from '../../actions/authorActions';
+import AuthorStore from '../../stores/authorStore';
 import AuthorList from './authorList';
 import { Link } from 'react-router'
 
 const Authors = React.createClass({
 	getInitialState: function() {
 		return {
-			authors: []
+			authors: AuthorStore.getAllAuthors()
 		};
 	},
-	componentDidMount: function() {
-		if(this.isMounted()) {
-			this.setState({
-				authors: AuthorsApi.getAllAuthors()
-			});
-		}
-	},
+
 	render: function() {
 		return (
 			<div className='container-fluid'>

@@ -3,7 +3,8 @@
 import React from 'react';
 import { Router } from 'react-router';
 import AuthorForm from './authorForm';
-import AuthorsApi from './../../api/authorsApi';
+import AuthorActions from '../../actions/authorActions';
+import AuthorStore from '../../stores/authorStore';
 import toastr from 'toastr';
 
 const ManageAuthorPage = React.createClass({
@@ -37,13 +38,12 @@ const ManageAuthorPage = React.createClass({
 
 		if(authorId) {
 			this.setState({
-				author: AuthorsApi.getAuthorById(authorId)
+				author: AuthorStore.getAuthorById(authorId)
 			})
 		}
 	},
 
 	setAuthorState(event) {
-		console.log(event.target.name)
 		let field = event.target.name;
 		let value = event.target.value;
 		this.state.author[field] = value;
@@ -58,7 +58,7 @@ const ManageAuthorPage = React.createClass({
 
 		if(!this.authorFormIsValid()) return;
 
-		AuthorsApi.saveAuthor(this.state.author);
+		AuthorActions.createAuthor(this.state.author);
 		toastr.success('Author saved.');
 		this.setState({dirty: false});
     this.context.router.push('authors');
