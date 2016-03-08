@@ -10,6 +10,9 @@ import About from './components/about/aboutPage'
 import NotFoundPage from './components/notFoundPage'
 import ManageAuthorPage from './components/authors/manageAuthorPage'
 import $ from 'jquery'
+import InitializeActions from './actions/initializeActions'
+
+InitializeActions.initApp();
 
 render((
 	<Router history={ hashHistory }>
