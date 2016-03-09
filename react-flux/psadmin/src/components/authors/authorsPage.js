@@ -7,10 +7,22 @@ import AuthorList from './authorList';
 import { Link } from 'react-router'
 
 const Authors = React.createClass({
-	getInitialState: function() {
+	getInitialState() {
 		return {
 			authors: AuthorStore.getAllAuthors()
 		};
+	},
+
+	componentWillMount() {
+		AuthorStore.addChangeListener(this._onChange)
+	},
+
+	componentWillUnmount() {
+		AuthorStore.removeChangeListener(this._onChange)
+	},
+
+	_onChange() {
+		this.setState({ authors: AuthorStore.getAllAuthors() })
 	},
 
 	render: function() {
