@@ -1,1 +1,3 @@
-# react-playground
+# react playground
+
+Playing with react, redux, flux...
