@@ -9,7 +9,7 @@ class CoursesPage extends React.Component {
 	  super(props, context)
 	}
 	render() {
-		const { courses } = this.props;
+		const { courses } = this.props
 		return (
 			<div>
 				<h1>Courses</h1>
