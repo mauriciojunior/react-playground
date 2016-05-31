@@ -46,7 +46,7 @@ const courses = [
   }
 ]
 
-function replaceAll(str, find, replace) {
+function replaceAll (str, find, replace) {
   return str.replace(new RegExp(find, 'g'), replace)
 }
 
@@ -56,7 +56,7 @@ const generateId = (course) => {
 }
 
 class CourseApi {
-  static getAllCourses() {
+  static getAllCourses () {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(Object.assign([], courses))
@@ -64,7 +64,7 @@ class CourseApi {
     })
   }
 
-  static saveCourse(course) {
+  static saveCourse (course) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
@@ -90,7 +90,7 @@ class CourseApi {
     })
   }
 
-  static deleteCourse(courseId) {
+  static deleteCourse (courseId) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const indexOfCourseToDelete = courses.findIndex(course => {
