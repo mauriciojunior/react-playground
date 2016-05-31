@@ -35,7 +35,7 @@ class AuthorApi {
     })
   }
 
-  static saveAuthor(author) {
+  static saveAuthor (author) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         // Simulate server-side validation
