@@ -8,7 +8,7 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors }) =
 			<h1>Manage Course</h1>
 			<TextInput
 				name="title"
-				label="title"
+				label="Title"
 				value={ course.title }
 				onChange={ onChange }
 				error={ errors.title }
@@ -18,7 +18,7 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors }) =
 				name="authorId"
 				label="Author"
 				value={ course.authorId }
-				defaultOptions="Select Author"
+				defaultOption="Select Author"
 				options={ allAuthors }
 				onChange={ onChange }
 				error={ errors.authorId }
@@ -52,12 +52,12 @@ const CourseForm = ({ course, allAuthors, onSave, onChange, loading, errors }) =
 }
 
 CourseForm.propTypes = {
-  course: React.PropTypes.object.isRequired,
-  allAuthors: React.PropTypes.array,
-  onSave: React.PropTypes.func.isRequired,
-  onChange: React.PropTypes.func.isRequired,
-  loading: React.PropTypes.bool,
-  errors: React.PropTypes.object
+  course: PropTypes.object.isRequired,
+  allAuthors: PropTypes.array,
+  onSave: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  loading: PropTypes.bool,
+  errors: PropTypes.object
 }
 
 export default CourseForm
