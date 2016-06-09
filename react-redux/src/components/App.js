@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, {PropTypes} from 'react'
 import Header from './common/Header'
 import {connect} from 'react-redux'
 
