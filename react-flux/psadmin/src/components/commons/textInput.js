@@ -1,4 +1,6 @@
-import React from 'react';
+'use strict'
+
+import React from 'react'
 
 const Input = React.createClass({
 	propTypes: {
@@ -9,22 +11,22 @@ const Input = React.createClass({
 		value: React.PropTypes.string,
 		error: React.PropTypes.string
 	},
-	render() {
-		let wrapperClass = 'form-group';
-		if(this.props.error && this.props.error.length > 0) wrapperClass += ' has-error';
+	render () {
+		let wrapperClass = 'form-group'
+		if (this.props.error && this.props.error.length > 0) wrapperClass += ' has-error'
 
 		return (
-			<div className={ wrapperClass }>
-				<label htmlFor={ this.props.name }>{ this.props.label }</label>
+			<div className={wrapperClas}>
+				<label htmlFor={this.props.name}>{ this.props.label }</label>
 				<div className='field'>
 					<input
 						type='text'
-						name={ this.props.name }
+						name={this.props.name}
 						className='form-control'
-						placeholder={ this.props.placeholder }
-						ref={ this.props.name }
-						value={ this.props.value }
-						onChange={ this.props.onChange }
+						placeholder={this.props.placeholder}
+						ref={this.props.name}
+						value={this.props.value}
+						onChange={this.props.onChange}
 					 />
 					 <div className='input'>
 					 	{ this.props.error }
@@ -33,6 +35,6 @@ const Input = React.createClass({
 			</div>
 		)
 	}
-});
+})
 
-module.exports = Input;
+module.exports = Input
