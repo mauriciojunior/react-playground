@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import {Link} from 'react-router'
 
 const Header = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<nav className='navbar navbar-default'>
 				<div className='container-fluid'>
@@ -20,6 +20,6 @@ const Header = React.createClass({
 			</nav>
 		)
 	}
-});
+})
 
-module.exports = Header;
+module.exports = Header
