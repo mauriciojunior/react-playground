@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import {Link} from 'react-router'
 
 const NotFoundPage = React.createClass({
 	render: () => {
@@ -11,8 +11,8 @@ const NotFoundPage = React.createClass({
 				<p>Woops! Sorry, there is nothing to see here.</p>
 				<p><Link to='/'>Back to Home</Link></p>
 			</div>
-		);
+		)
 	}
-});
+})
 
-module.exports = NotFoundPage;
+module.exports = NotFoundPage
