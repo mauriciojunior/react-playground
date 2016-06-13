@@ -1,17 +1,17 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import Header from './commons/header';
+import React from 'react'
+import Header from './commons/header'
 
 const App = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<div>
 				<Header />
 				{ this.props.children }
 			</div>
-		);
+		)
 	}
-});
+})
 
-module.exports = App;
+module.exports = App
