@@ -1,8 +1,9 @@
-'use strict';
-import React from 'react';
+'use strict'
+
+import React from 'react'
 
 const Home = React.createClass({
-	render: function() {
+	render: function () {
 		return (
 			<div className='container-fluid'>
 				<div className="jumbotron">
@@ -10,8 +11,8 @@ const Home = React.createClass({
 					<p>React, React Router and Flux for ultra-responsive web apps.</p>
 				</div>
 			</div>
-		);
+		)
 	}
-});
+})
 
-module.exports = Home;
+module.exports = Home
