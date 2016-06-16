@@ -3,14 +3,14 @@ import ActionTypes from '../constants/actionTypes'
 import AuthorApi from '../api/authorsApi'
 
 const InitializeActions = {
-	initApp() {
+	initApp () {
 		Dispatcher.dispatch({
 			actionType: ActionTypes.INITIALIZE,
 			initialData: {
 				authors: AuthorApi.getAllAuthors()
 			}
-		});
+		})
 	}
-};
+}
 
-module.exports = InitializeActions;
+module.exports = InitializeActions
