@@ -7,7 +7,6 @@ export default function courseReducer (state = initialState.courses, action) {
 			return action.courses
 
 		case types.CREATE_COURSES_SUCCESS:
-			debugger
 			return [
 				...state,
 				Object.assign({}, action.course)
