@@ -1,0 +1,10 @@
+$large-space: 2.5rem;
+
+.page-title {
+  margin-top: $large-space;
+  margin-bottom: $large-space;
+}
+
+input[type=search] {
+  box-shadow: none;
+}
