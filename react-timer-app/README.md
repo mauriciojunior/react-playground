@@ -1,4 +1,4 @@
-#React timer app
+# React timer app
 
 App made using
 
